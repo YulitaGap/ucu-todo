@@ -1,4 +1,3 @@
-
 export default class Stepan {
   
   static validateElement(elem){
@@ -36,13 +35,21 @@ export default class Stepan {
 
       if ( parent === null || parent === undefined){
         // 2. throw an error if parent is null or undefinedx
-
-        throw new StepanError("The parent object is null of undefined.")
+        try{
+          throw new StepanError("The parent object is null of undefined.")
+        }
+        catch(err){
+        alert(err)
+        }
       }
       if (! parent instanceof Element){
         //2. throw an error if parent is not a valid DOM object
-
-        throw new StepanError("The parent object is not a valid DOM object")
+        try{
+          throw new StepanError("The parent object is not a valid DOM object")
+        }
+        catch(err){
+          alert(err)
+        }
       }
       this.parent = parent;
     }
@@ -57,4 +64,3 @@ class StepanError extends Error {
     this.name = "StepanError"
   }
 }
-
